@@ -23,7 +23,7 @@ ifeq ($(UNAMES),Linux)
 
   else
 
-    F90 := gfortran -O3 $(ENFORCE_64_BIT_PRECISION)
+    F90 := gfortran -O3 $(ENFORCE_64_BIT_PRECISION) -std=legacy
     CPP := gfortran -cpp
 
   endif
