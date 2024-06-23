@@ -5,7 +5,8 @@ UNAMES := $(shell uname -s)
 
 ENFORCE_64_BIT_PRECISION = \
 -fdefault-real-8 \
--fdefault-double-8
+-fdefault-double-8 \
+-fallow-argument-mismatch
 
 #EXTERNAL_LIB_DIRECTORY = /usr/local/lib
 EXTERNAL_LIB_DIRECTORY = /usr/local/lib64
@@ -56,7 +57,7 @@ ifeq ($(UNAMES),IRIX64)
     AR := /usr/bin/ar
     F90 := f90 -I../lib
     CPP := f90 -E
-    MAKE := /usr/local/bin/gmake
+    MAKE := /usr/bin/make
 
 endif
 
@@ -65,6 +66,6 @@ ifeq ($(UNAMES),Darwin)
     AR := /usr/bin/ar
     F90 := gfortran -O3 $(ENFORCE_64_BIT_PRECISION)
     CPP := gfortran -cpp
-    MAKE := /usr/local/bin/gmake
+    MAKE := /usr/bin/make
 
 endif
